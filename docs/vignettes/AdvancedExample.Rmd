@@ -13,11 +13,20 @@ source("http://raw.githubusercontent.com/cwendorf/dsitR/main/source-dsitR.R")
 ### Conduct the Simulation
 
 ```{r}
-# Example: run simulation with Moore + outside neighbors
-result <- run_simulation(agents, neighbor_moore_outside, steps=50)
+# Initialize agents and initial opinions
+agents <- create_agents(rows=10, cols=10, opinions=3)
 
-# Example: random 5 neighbors
-result2 <- run_simulation(agents, neighbor_random_k, steps=50, params=list(k=5))
+# Define the interactions among the agents
+neighborhood1 <- create_neighborhood(agents, neighbors_moore_outside)
+neighborhood2 <- create_neighborhood(agents, neighbors_random_k, params=list(k=5))
+```
+
+```{r}
+# Example 1: Moore + outside neighbors
+result1 <- run_simulation(agents, neighborhood1, steps=50)
+
+# Example 2: random 5 neighbors
+result2 <- run_simulation(agents, neighborhood2, steps=50)
 ```
 
 ### Visualize the Simulation
@@ -29,8 +38,8 @@ Plot the neighborhood at various steps (either with or without the connections a
 my_palette <- colorRampPalette(c("darkgreen","white","purple"))(100)
 # Opinion 1 Step 50
 plot_step(
-  subset(result, time == 50),
-  neighborhood = neighborhood,
+  subset(result1, time == 50),
+  neighborhood = neighborhood1,
   opinion = "opinion1",
   col_palette = my_palette
 )
@@ -38,15 +47,15 @@ plot_step(
 
 
 ```{r}
-frame20 <- subset(result, time==20)
+frame20 <- subset(result1, time==20)
 plot_network(frame20,
-  neighborhood=neighbors_moore_outside,
+  neighborhood=neighborhood1,
   opinion="opinion1",
   main="Force-directed network (t=20)"
 )
 
-animate_network(result,
-  neighborhood=neighbors_moore_outside,
+animate_network(result1,
+  neighborhood=neighborhood1,
   opinion="opinion1",
 )
 ```

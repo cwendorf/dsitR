@@ -125,11 +125,12 @@ animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1"
 
 ### Plot Force Network
 
-plot_network <- function(frame, neighborhood, opinion="opinion1",
-                               edge_col="grey80", node_palette=NULL,
-                               node_size=2, main=NULL,
-                               iterations=200, k=0.05, repel=0.01,
-                               params=list()) {
+plot_network <- function(frame, neighborhood,
+                         opinion="opinion1",
+                         edge_col="grey80", node_palette=NULL,
+                         node_size=2, main=NULL,
+                         iterations=200, k=0.05, repel=0.01) {
+  
   agents <- nrow(frame)
 
   if(is.null(node_palette)) {
@@ -138,9 +139,8 @@ plot_network <- function(frame, neighborhood, opinion="opinion1",
   frame$col <- node_palette[cut(frame[[opinion]], breaks=100)]
 
   edges <- list()
-  for(i in 1:agents){
-    neighbors <- neighborhood(i, frame, params)
-    for(j in neighbors){
+  for(i in 1:length(neighborhood)){
+    for(j in neighborhood[[i]]){
       edges <- append(edges, list(c(i,j)))
     }
   }
@@ -149,9 +149,10 @@ plot_network <- function(frame, neighborhood, opinion="opinion1",
 
   for(step in 1:iterations){
     disp <- matrix(0, nrow=agents, ncol=2)
+
     for(i in 1:agents){
       for(j in 1:agents){
-        if(i!=j){
+        if(i != j){
           delta <- pos[i,] - pos[j,]
           dist <- sqrt(sum(delta^2)) + 1e-6
           force <- repel / dist^2
@@ -159,6 +160,7 @@ plot_network <- function(frame, neighborhood, opinion="opinion1",
         }
       }
     }
+
     for(e in edges){
       i <- e[1]; j <- e[2]
       delta <- pos[i,] - pos[j,]
@@ -167,6 +169,7 @@ plot_network <- function(frame, neighborhood, opinion="opinion1",
       disp[i,] <- disp[i,] - (delta/dist) * force
       disp[j,] <- disp[j,] + (delta/dist) * force
     }
+
     disp <- disp / apply(disp, 1, function(x) max(1, sqrt(sum(x^2))))
     pos <- pos + 0.01 * disp
   }
@@ -182,26 +185,25 @@ plot_network <- function(frame, neighborhood, opinion="opinion1",
   points(pos[,1], pos[,2], col=frame$col, pch=19, cex=node_size)
 }
 
-### Anmimate Force Network
+### Animate Force Network
 
 animate_network <- function(history, neighborhood,
-                                  opinion="opinion1",
-                                  edge_col="grey80", node_size=2,
-                                  iterations=200, k=0.05, repel=0.01,
-                                  delay=0.2, params=list()) {
+                            opinion="opinion1",
+                            edge_col="grey80", node_size=2,
+                            iterations=200, k=0.05, repel=0.01,
+                            delay=0.2) {
   
   times <- sort(unique(history$time))
   
   for(t in times){
     frame <- subset(history, time==t)
     plot_network(frame,
-                       neighborhood=neighborhood,
-                       opinion=opinion,
-                       edge_col=edge_col,
-                       node_size=node_size,
-                       main=paste("Force-directed network (t=", t, ")", sep=""),
-                       iterations=iterations, k=k, repel=repel,
-                       params=params)
+                 neighborhood=neighborhood,
+                 opinion=opinion,
+                 edge_col=edge_col,
+                 node_size=node_size,
+                 main=paste("Force-directed network (t=", t, ")", sep=""),
+                 iterations=iterations, k=k, repel=repel)
     Sys.sleep(delay)
   }
 }
