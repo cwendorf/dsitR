@@ -76,7 +76,6 @@ animate_simulation(
   result,
   neighborhood = neighborhood,
   opinion = "opinion1",
-  delay = 0.2,
   edges = TRUE
 )
 
@@ -85,7 +84,6 @@ animate_simulation(
   result,
   neighborhood = neighborhood,
   opinion = "opinion2",
-  delay = 0.2,
   edges = FALSE
 )
 ```
