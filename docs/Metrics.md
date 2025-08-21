@@ -12,9 +12,9 @@ Definition:
 
 Interpretation:
 
-- ≈ 0 → independent dimensions (people’s stance on issue A tells you nothing about issue B).
-- > 0 → consolidation (dimensions align; if I know your stance on A, I can predict B).
-- < 0 → cross-cutting (polarization along one dimension tends to oppose the other).
+- When ≈ 0 → independent dimensions (people’s stance on issue A tells you nothing about issue B).
+- When > 0 → consolidation (dimensions align; if I know your stance on A, I can predict B).
+- When < 0 → cross-cutting (polarization along one dimension tends to oppose the other).
 
 Example: 
 
@@ -37,8 +37,8 @@ Definition:
 
 Interpretation:
 
-- 1 → all agents are identical to their neighbors
-- 0 → opinions are maximally different from neighbors
+- When = 1 → all agents are identical to their neighbors
+- When = 0 → opinions are maximally different from neighbors
 
 Example:
 
@@ -83,8 +83,8 @@ Definition:
 
 Interpretation:
 
-- 1 → perfect spatial clustering: neighbors have identical opinions (local consensus)
-- 0 → agents are maximally mixed with respect to opinion (local disagreement)
+- When = 1 → perfect spatial clustering: neighbors have identical opinions (local consensus)
+- When = 0 → agents are maximally mixed with respect to opinion (local disagreement)
 
 Example:
 
