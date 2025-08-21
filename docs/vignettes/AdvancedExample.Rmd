@@ -36,6 +36,21 @@ plot_step(
 )
 ```
 
+
+```{r}
+frame20 <- subset(result, time==20)
+plot_network(frame20,
+  neighborhood=neighbors_moore_outside,
+  opinion="opinion1",
+  main="Force-directed network (t=20)"
+)
+
+animate_network(result,
+  neighborhood=neighbors_moore_outside,
+  opinion="opinion1",
+)
+```
+
 ### Assess the Simulation
 
 ```{r}

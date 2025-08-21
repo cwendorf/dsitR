@@ -76,23 +76,20 @@ plot_individual <- function(frame, neighborhood, id=NULL, coords=NULL,
 ### Animate Simulation
 
 animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1", 
-                               delay=0.1, edges=TRUE, col_palette=NULL) {
+                               delay=0.2, edges=TRUE, col_palette=NULL) {
   steps <- sort(unique(sim_result$time))
   
   if (is.null(col_palette)) {
     col_palette <- colorRampPalette(c("blue", "white", "red"))(100)
   }
-  
-  # First frame to set up plot
+
   frame <- subset(sim_result, time == steps[1])
   rows <- max(frame$y)
   cols <- max(frame$x)
-  
-  # Draw static background
+
   plot(frame$x, frame$y, type="n", xlim=c(1, cols), ylim=c(1, rows),
-       xlab="X", ylab="Y", main="")  # leave main empty
-  
-  # Draw edges once if requested
+       xlab="X", ylab="Y", main="")
+
   if (edges && !is.null(neighborhood)) {
     for (i in 1:nrow(frame)) {
       for (j in neighborhood[[i]]) {
@@ -100,24 +97,20 @@ animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1"
       }
     }
   }
-  
-  # Draw points for the first frame
+
   values <- frame[[opinion]]
   colors <- col_palette[as.numeric(cut(values, breaks=100))]
   points(frame$x, frame$y, col=colors, pch=19, cex=2)
-  
-  # Function to redraw title: same spot, bold, slightly higher
+
   draw_step_title <- function(text) {
     usr <- par("usr")
     rect(usr[1], usr[4], usr[2], usr[4] + diff(usr[3:4])*0.1,
          col="white", border=NA, xpd=NA)
-    mtext(text, side=3, line=1, cex=par("cex.main"), font=2)  # bold, slightly higher
+    mtext(text, side=3, line=1, cex=par("cex.main"), font=2)
   }
-  
-  # First step title
+
   draw_step_title(paste("Step", steps[1]))
-  
-  # Animate remaining frames
+
   for (t in steps[-1]) {
     frame <- subset(sim_result, time == t)
     values <- frame[[opinion]]
@@ -126,6 +119,89 @@ animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1"
     points(frame$x, frame$y, col=colors, pch=19, cex=2)
     draw_step_title(paste("Step", t))
     
+    Sys.sleep(delay)
+  }
+}
+
+### Plot Force Network
+
+plot_network <- function(frame, neighborhood, opinion="opinion1",
+                               edge_col="grey80", node_palette=NULL,
+                               node_size=2, main=NULL,
+                               iterations=200, k=0.05, repel=0.01,
+                               params=list()) {
+  agents <- nrow(frame)
+
+  if(is.null(node_palette)) {
+    node_palette <- colorRampPalette(c("blue","white","red"))(100)
+  }
+  frame$col <- node_palette[cut(frame[[opinion]], breaks=100)]
+
+  edges <- list()
+  for(i in 1:agents){
+    neighbors <- neighborhood(i, frame, params)
+    for(j in neighbors){
+      edges <- append(edges, list(c(i,j)))
+    }
+  }
+
+  pos <- matrix(runif(agents*2, 0, 1), ncol=2)
+
+  for(step in 1:iterations){
+    disp <- matrix(0, nrow=agents, ncol=2)
+    for(i in 1:agents){
+      for(j in 1:agents){
+        if(i!=j){
+          delta <- pos[i,] - pos[j,]
+          dist <- sqrt(sum(delta^2)) + 1e-6
+          force <- repel / dist^2
+          disp[i,] <- disp[i,] + (delta/dist) * force
+        }
+      }
+    }
+    for(e in edges){
+      i <- e[1]; j <- e[2]
+      delta <- pos[i,] - pos[j,]
+      dist <- sqrt(sum(delta^2)) + 1e-6
+      force <- k * dist^2
+      disp[i,] <- disp[i,] - (delta/dist) * force
+      disp[j,] <- disp[j,] + (delta/dist) * force
+    }
+    disp <- disp / apply(disp, 1, function(x) max(1, sqrt(sum(x^2))))
+    pos <- pos + 0.01 * disp
+  }
+
+  pos <- (pos - apply(pos,2,min)) / (apply(pos,2,max) - apply(pos,2,min) + 1e-6)
+
+  plot(pos, type="n", xlab="", ylab="", axes=FALSE,
+       main=main, xlim=c(0,1), ylim=c(0,1))
+  for(e in edges){
+    i <- e[1]; j <- e[2]
+    segments(pos[i,1], pos[i,2], pos[j,1], pos[j,2], col=edge_col)
+  }
+  points(pos[,1], pos[,2], col=frame$col, pch=19, cex=node_size)
+}
+
+### Anmimate Force Network
+
+animate_network <- function(history, neighborhood,
+                                  opinion="opinion1",
+                                  edge_col="grey80", node_size=2,
+                                  iterations=200, k=0.05, repel=0.01,
+                                  delay=0.2, params=list()) {
+  
+  times <- sort(unique(history$time))
+  
+  for(t in times){
+    frame <- subset(history, time==t)
+    plot_network(frame,
+                       neighborhood=neighborhood,
+                       opinion=opinion,
+                       edge_col=edge_col,
+                       node_size=node_size,
+                       main=paste("Force-directed network (t=", t, ")", sep=""),
+                       iterations=iterations, k=k, repel=repel,
+                       params=params)
     Sys.sleep(delay)
   }
 }
