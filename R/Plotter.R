@@ -1,8 +1,15 @@
 # dsitR
 ## Plotter
 
-### Helper for coloring agents
-
+#' Color agents based on values
+#'
+#' Maps numeric values to colors using a color palette.
+#'
+#' @param values Numeric vector of values to map to colors.
+#' @param col_palette Optional character vector of colors. If NULL, a blue-white-red palette of 100 colors is used.
+#'
+#' @return Character vector of colors corresponding to the input values.
+#' @export
 color_agents <- function(values, col_palette=NULL) {
   if(is.null(col_palette)) {
     col_palette <- colorRampPalette(c("blue","white","red"))(100)
@@ -10,8 +17,20 @@ color_agents <- function(values, col_palette=NULL) {
   col_palette[as.numeric(cut(values, breaks=100))]
 }
 
-### Plot all agents at a single step
-
+#' Plot all agents at a single step
+#'
+#' Visualizes agents on a grid for a single time step, optionally showing their neighborhood connections
+#' and coloring agents according to an opinion value.
+#'
+#' @param frame Data frame of agents at a single step, including `x`, `y`, and opinion columns.
+#' @param neighborhood Optional list of neighbors for each agent, as produced by a neighborhood function.
+#' @param opinion Character name of the column in `frame` to use for coloring (default "opinion1").
+#' @param main Optional main title for the plot. If NULL, uses the step number from `frame$time`.
+#' @param edges Logical; whether to draw lines connecting neighbors (default TRUE).
+#' @param col_palette Optional color palette passed to `color_agents`.
+#'
+#' @return NULL; produces a plot.
+#' @export
 plot_step <- function(frame, neighborhood=NULL, opinion="opinion1", 
                       main=NULL, edges=TRUE, col_palette=NULL) {
 
@@ -38,8 +57,22 @@ plot_step <- function(frame, neighborhood=NULL, opinion="opinion1",
   points(frame$x, frame$y, col=frame$col, pch=19, cex=2)
 }
 
-### Plot a single agent + its neighbors
-
+#' Plot a single agent and its neighbors
+#'
+#' Visualizes a single focal agent on a grid along with its neighbors,
+#' coloring agents according to an opinion value.
+#'
+#' @param frame Data frame of agents at a single step, including `x`, `y`, and opinion columns.
+#' @param neighborhood List of neighbors for each agent.
+#' @param id Optional integer ID of the focal agent.
+#' @param coords Optional numeric vector of length 2 specifying the (x, y) coordinates of the focal agent.
+#' @param opinion Character name of the column in `frame` to use for coloring (default "opinion1").
+#' @param col_palette Optional color palette passed to `color_agents`.
+#' @param edges Logical; whether to draw lines connecting the focal agent to its neighbors (default TRUE).
+#' @param focal_cex Numeric; size of the focal agent point (default 3).
+#'
+#' @return NULL; produces a plot.
+#' @export
 plot_individual <- function(frame, neighborhood, id=NULL, coords=NULL, 
                             opinion="opinion1", col_palette=NULL, edges=TRUE, focal_cex=3) {
   
@@ -73,8 +106,20 @@ plot_individual <- function(frame, neighborhood, id=NULL, coords=NULL,
   points(frame$x[focal], frame$y[focal], col=frame$col[focal], pch=19, cex=focal_cex)
 }
 
-### Animate Simulation
-
+#' Animate simulation of agents over time
+#'
+#' Creates an animation of agents moving over time steps, optionally showing neighborhood connections 
+#' and coloring agents according to an opinion value.
+#'
+#' @param sim_result Data frame of simulation results including `x`, `y`, `time`, and opinion columns.
+#' @param neighborhood Optional list of neighbors for each agent, as produced by a neighborhood function.
+#' @param opinion Character name of the column in `sim_result` to use for coloring (default "opinion1").
+#' @param delay Numeric; time delay between steps in seconds (default 0.2).
+#' @param edges Logical; whether to draw lines connecting neighbors (default TRUE).
+#' @param col_palette Optional color palette to use for mapping opinion values. If NULL, uses a blue-white-red palette of 100 colors.
+#'
+#' @return NULL; produces an animated plot.
+#' @export
 animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1", 
                                delay=0.2, edges=TRUE, col_palette=NULL) {
   steps <- sort(unique(sim_result$time))
@@ -123,8 +168,24 @@ animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1"
   }
 }
 
-### Plot Force Network
-
+#' Plot force-directed network of agents
+#'
+#' Visualizes agents as nodes in a force-directed network, showing edges based on a neighborhood structure.
+#' Node colors represent an opinion value.
+#'
+#' @param frame Data frame of agents at a single step, including opinion columns.
+#' @param neighborhood List of neighbors for each agent.
+#' @param opinion Character name of the column in `frame` to use for node coloring (default "opinion1").
+#' @param edge_col Color of edges (default "grey80").
+#' @param node_palette Optional color palette for nodes. If NULL, a blue-white-red palette of 100 colors is used.
+#' @param node_size Numeric size of nodes (default 2).
+#' @param main Optional main title for the plot.
+#' @param iterations Number of iterations for force-directed layout (default 200).
+#' @param k Attraction strength between connected nodes (default 0.05).
+#' @param repel Repulsion strength between all nodes (default 0.01).
+#'
+#' @return NULL; produces a plot.
+#' @export
 plot_network <- function(frame, neighborhood,
                          opinion="opinion1",
                          edge_col="grey80", node_palette=NULL,
@@ -185,8 +246,23 @@ plot_network <- function(frame, neighborhood,
   points(pos[,1], pos[,2], col=frame$col, pch=19, cex=node_size)
 }
 
-### Animate Force Network
-
+#' Animate force-directed network over time
+#'
+#' Creates an animation of a force-directed network of agents over multiple time steps,
+#' showing node colors based on an opinion value and edges based on a neighborhood structure.
+#'
+#' @param history Data frame of simulation results including `x`, `y`, `time`, and opinion columns.
+#' @param neighborhood List of neighbors for each agent.
+#' @param opinion Character name of the column in `history` to use for node coloring (default "opinion1").
+#' @param edge_col Color of edges (default "grey80").
+#' @param node_size Numeric size of nodes (default 2).
+#' @param iterations Number of iterations for the force-directed layout per frame (default 200).
+#' @param k Attraction strength between connected nodes (default 0.05).
+#' @param repel Repulsion strength between all nodes (default 0.01).
+#' @param delay Numeric; time delay between frames in seconds (default 0.2).
+#'
+#' @return NULL; produces an animated plot.
+#' @export
 animate_network <- function(history, neighborhood,
                             opinion="opinion1",
                             edge_col="grey80", node_size=2,
