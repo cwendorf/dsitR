@@ -1,0 +1,58 @@
+---
+title: "Advanced Example"
+output:
+  github_document:
+    preserve_yaml: FALSE
+---
+
+```{r setup, include=TRUE}
+# Load necessary functions from external file
+source("http://raw.githubusercontent.com/cwendorf/dsitR/main/source-dsitR.R")
+```
+
+### Conduct the Simulation
+
+```{r}
+# Example: run simulation with Moore + outside neighbors
+result <- run_simulation(agents, neighbor_moore_outside, steps=50)
+
+# Example: random 5 neighbors
+result2 <- run_simulation(agents, neighbor_random_k, steps=50, params=list(k=5))
+```
+
+### Visualize the Simulation
+
+Plot the neighborhood at various steps (either with or without the connections among agents).
+
+```{r}
+# Custom Palette
+my_palette <- colorRampPalette(c("darkgreen","white","purple"))(100)
+# Opinion 1 Step 50
+plot_step(
+  subset(result, time == 50),
+  neighborhood = neighborhood,
+  opinion = "opinion1",
+  col_palette = my_palette
+)
+```
+
+### Assess the Simulation
+
+```{r}
+# Assume 'frame' is the subset of the simulation at a given time
+frame <- subset(result, time == 50)
+
+# Calculate individual metrics
+compute_correlation(frame)
+compute_consolidation(frame)
+compute_diversity(frame)
+compute_clustering(frame)
+
+#Calculate multiple metrics
+metrics <- compute_metrics(frame)
+
+metrics$correlation      # vector: correlations among opinions
+metrics$consolidation    # vector: consolidation per opinion
+metrics$diversity        # vector: variance per opinion
+metrics$clustering       # vector: clustering per opinion
+```
