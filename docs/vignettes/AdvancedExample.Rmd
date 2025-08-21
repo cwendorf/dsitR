@@ -12,71 +12,101 @@ source("http://raw.githubusercontent.com/cwendorf/dsitR/main/source-dsitR.R")
 
 ### Conduct the Simulation
 
-```{r}
-# Initialize agents and initial opinions
-agents <- create_agents(rows=10, cols=10, opinions=3)
+Create the agents and neighborhoods for the network.
 
-# Define the interactions among the agents
-neighborhood1 <- create_neighborhood(agents, neighbors_moore_outside)
-neighborhood2 <- create_neighborhood(agents, neighbors_random_k, params=list(k=5))
+```{r}
+# Initialize a larger network with multiple opinions
+agents <- create_agents(rows=10, cols=10, opinions=4)
+
+# Use a more complex neighborhood structure
+neighborhood <- create_neighborhood(agents, neighbors_moore_outside)
 ```
 
-```{r}
-# Example 1: Moore + outside neighbors
-result1 <- run_simulation(agents, neighborhood1, steps=50)
+Run and verify the simulation based on the neighborhood.
 
-# Example 2: random 5 neighbors
-result2 <- run_simulation(agents, neighborhood2, steps=50)
+```{r}
+# Run a longer and slower simulation
+result <- run_simulation(agents, neighborhood=neighborhood, steps=100, rate=.05)
+
+# View the first few rows of the simulation to see what is produced
+head(result)
 ```
 
 ### Visualize the Simulation
 
-Plot the neighborhood at various steps (either with or without the connections among agents).
+Visualize the a step using a force-directed graph.
 
 ```{r}
-# Custom Palette
-my_palette <- colorRampPalette(c("darkgreen","white","purple"))(100)
-# Opinion 1 Step 50
-plot_step(
-  subset(result1, time == 50),
-  neighborhood = neighborhood1,
-  opinion = "opinion1",
-  col_palette = my_palette
+# Visualize just the initial step
+frame1 <- subset(result, time==1)
+plot_network(frame1,
+  neighborhood=neighborhood,
+  opinion="opinion1",
+  main="Initial Force-Directed Network"
 )
 ```
 
+Visualize the entire simulation to unveil changes and patterns.
 
 ```{r}
-frame20 <- subset(result1, time==20)
-plot_network(frame20,
-  neighborhood=neighborhood1,
-  opinion="opinion1",
-  main="Force-directed network (t=20)"
-)
-
-animate_network(result1,
-  neighborhood=neighborhood1,
+# Animate the changes in the force-directed graph
+animate_network(result,
+  neighborhood=neighborhood,
   opinion="opinion1",
 )
 ```
 
 ### Assess the Simulation
 
+Prepare for and conduct the Principal Components extraction.
+
 ```{r}
-# Assume 'frame' is the subset of the simulation at a given time
-frame <- subset(result, time == 50)
+# Extract opinions from the final frame
+frame <- subset(result1, time == 100)
+frame <- frame[, c("opinion1", "opinion2", "opinion3", "opinion4")]
+head(frame)
 
-# Calculate individual metrics
-compute_correlation(frame)
-compute_consolidation(frame)
-compute_diversity(frame)
-compute_clustering(frame)
+# Run PCA and calculate component scores
+frame_scaled <- scale(frame)
+pca <- prcomp(frame_scaled, center = TRUE, scale. = TRUE)
+scores <- pca$x
+```
 
-#Calculate multiple metrics
-metrics <- compute_metrics(frame)
+Determine the number of likely clusters in the data.
 
-metrics$correlation      # vector: correlations among opinions
-metrics$consolidation    # vector: consolidation per opinion
-metrics$diversity        # vector: variance per opinion
-metrics$clustering       # vector: clustering per opinion
+```{r}
+# k-means clustering in component space
+summary(pca)
+pca$rotation
+var_explained <- summary(pca)$importance[2,]
+plot(var_explained, type="b", pch=19,
+     xlab="Principal Component",
+     ylab="Proportion of Variance Explained",
+     main="Scree Plot")
+
+# Choose number of clusters for later analyses
+k <- 2
+clusters <- kmeans(scores[,1:2], centers = k)$cluster
+```
+
+Assess the difference in component scores by cluster.
+
+```{r}
+# Boxplots of components per cluster
+boxplot(scores[,1] ~ clusters,
+        xlab = "Cluster", ylab = "PC1",
+        main = "PC1 distribution per cluster",
+        col = rainbow(k))
+boxplot(scores[,2] ~ clusters,
+        xlab = "Cluster", ylab = "PC2",
+        main = "PC2 distribution per cluster",
+        col = rainbow(k))
+
+# Scatterplot in PC1-PC2 space, colored by clusters
+plot(scores[,1], scores[,2],
+     col = clusters,
+     pch = 19, cex = 1.2,
+     xlab = "PC1", ylab = "PC2",
+     main = "Agents in PCA space with clusters")
+legend("topright", legend = paste("Cluster", 1:k), col=1:k, pch=19)
 ```
