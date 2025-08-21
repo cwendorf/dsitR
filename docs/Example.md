@@ -104,7 +104,7 @@ frame <- subset(result, time == 50)
 compute_metrics(frame)
 ```
 
-Calcuate and plot trends in the metrics.
+Calculate and plot trends in the metrics.
 
 ```{r}
 # Calculate the trends in the metrics

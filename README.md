@@ -33,7 +33,7 @@ This package contains a set of documents to explain and demonstrate its use:
 - [Neighborhoods](./docs/Neighborhoods.md) - Models used to represent influence networks
 - [Metrics](./docs/Metrics.md) - Statistics used to measure changes in influence networks
 - [Visualization](./docs/Visualization.md) - Graphs used to visualize the influence networks
-- [Example](./docs/Example.md) - Sampel code to analyze a simple example
+- [Example](./docs/Example.md) - Sample code to analyze a simple example
 
 ### Contact Me
 
