@@ -33,7 +33,6 @@ This package contains a set of documents to explain and demonstrate its use:
 - [Networks](./docs/Networks.md) - Agents and neighborhoods used to represent influence networks
 - [Visualization](./docs/Visualization.md) - Graphs used to visualize the influence networks
 - [Metrics](./docs/Metrics.md) - Metrics used to measure changes in influence networks
-- [Analyses](./docs/Analyses.md) - Statistics used to analyze complex influence networks
 - [Example](./docs/Example.md) - Sample code to analyze a simple influence network
 
 ### Contact Me
