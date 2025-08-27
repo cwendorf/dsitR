@@ -55,7 +55,7 @@ create_neighborhood <- function(agents, neighbors, params=list()) {
 #' @param max_val Maximum allowed value.
 #'
 #' @return Wrapped position within 1 to max_val.
-#' @keywords internal
+#' @noRd
 .wrap <- function(pos, max_val) {
   if(pos < 1) return(max_val)
   if(pos > max_val) return(1)

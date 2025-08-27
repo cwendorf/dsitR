@@ -12,7 +12,7 @@
 #' @param opinions Integer number of opinion dimensions.
 #'
 #' @return Numeric vector of length `opinions` representing the weighted influence from neighbors.
-#' @export
+#' @noRd
 calculate_influence <- function(id, neighbors, agents, opinions){
   infl <- numeric(opinions)
   for(k in 1:opinions){
@@ -34,7 +34,7 @@ calculate_influence <- function(id, neighbors, agents, opinions){
 #' @param opinions Integer number of opinion dimensions.
 #'
 #' @return Updated agent row as a data frame.
-#' @export
+#' @noRd
 update_opinions <- function(agent_row, influence, rate=0.2, opinions){
   for(k in 1:opinions){
     agent_row[[paste0("opinion",k)]] <- agent_row[[paste0("opinion",k)]] +

@@ -10,7 +10,7 @@
 #' @param radius Numeric radius for local neighborhood (default 1).
 #'
 #' @return Integer vector of neighbor agent IDs within the radius.
-#' @keywords internal
+#' @noRd
 .local <- function(frame, i, radius=1) {
   dx <- abs(frame$x - frame$x[i])
   dy <- abs(frame$y - frame$y[i])
