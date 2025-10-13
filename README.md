@@ -29,11 +29,11 @@ source("http://raw.githubusercontent.com/cwendorf/dsitR/main/source-dsitR.R")
 
 This package contains a set of documents to explain and demonstrate its use:
 
-- [Background](./docs/Background.md) - Theoretical background for simulating influence networks
-- [Networks](./docs/Networks.md) - Agents and neighborhoods used to represent influence networks
-- [Visualization](./docs/Visualization.md) - Graphs used to visualize the influence networks
-- [Metrics](./docs/Metrics.md) - Metrics used to measure changes in influence networks
-- [Example](./docs/Example.md) - Sample code to analyze a simple influence network
+- [Background](./docs/Background.md) - The theoretical background for simulating influence networks
+- [Networks](./docs/Networks.md) - The types of agents and neighborhoods used to represent influence networks
+- [Visualization](./docs/Visualization.md) - The various graphs used to visualize the influence networks
+- [Metrics](./docs/Metrics.md) - The metrics used to measure changes in influence networks
+- [Sample](./docs/Sample.md) - The basic code to analyze a simple influence network
 
 ### Contact Me
 
