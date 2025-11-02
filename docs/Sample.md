@@ -1,3 +1,5 @@
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
+
 ## Sample
 
 This is a basic example of a `dsitR` simulation. It demonstrates the various steps of simulating, visualizing, and assessing.

@@ -1,3 +1,5 @@
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
+
 ## Networks
 
 Agents and neighborhoods together define the social network in DSIT simulations: agents are the nodes, each with opinions and influence strength, and neighborhoods determine the edges, specifying who interacts with whom.

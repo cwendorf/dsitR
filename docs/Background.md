@@ -1,3 +1,5 @@
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
+
 ## Background
 
 Dynamic Social Impact Theory (DSIT), developed by Bibb Latané and colleagues, explains how people influence each other over time and how culture forms.

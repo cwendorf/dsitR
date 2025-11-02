@@ -1,3 +1,5 @@
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
+
 ## Analyses
 
 Applying Principal Components Analysis to Dynamic Social Impact Theory simulations helps uncover the key patterns and group structures hidden within complex, high-dimensional data.
