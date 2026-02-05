@@ -4,7 +4,29 @@
 
 Interpreting DSIT metrics properly is crucial, because each one is trying to capture a different aspect of how opinions evolve in simulations.
 
-### Correlation (Between Dimensions)
+### Clustering
+
+Definition: 
+- Measures how spatially clustered similar opinions are on the grid. 
+- For each agent, compare opinion differences to neighbors, then average across the grid.
+- Range: 0 to 1
+
+Interpretation:
+
+- When = 1 → perfect spatial clustering: neighbors have identical opinions (local consensus)
+- When = 0 → agents are maximally mixed with respect to opinion (local disagreement)
+
+Example:
+
+- A 10x10 grid where each quadrant has a uniform opinion and quadrants differ: high clustering (~0.9).
+- A checkerboard pattern where neighbors have opposing opinions: low clustering (~0.1).
+
+Relevance:
+
+- Clustering tends to increase, since influence is local.
+- But if you add random long-range ties, clusters may compete instead of stabilizing.
+
+### Correlation
 
 Definition: 
 
@@ -75,25 +97,3 @@ Relevance:
 
 - Early → diversity is high (opinions are scattered).
 - Later → diversity may collapse into clusters (lower variance within groups, but possibly multiple groups).
-
-### Clustering
-
-Definition: 
-- Measures how spatially clustered similar opinions are on the grid. 
-- For each agent, compare opinion differences to neighbors, then average across the grid.
-- Range: 0 to 1
-
-Interpretation:
-
-- When = 1 → perfect spatial clustering: neighbors have identical opinions (local consensus)
-- When = 0 → agents are maximally mixed with respect to opinion (local disagreement)
-
-Example:
-
-- A 10x10 grid where each quadrant has a uniform opinion and quadrants differ: high clustering (~0.9).
-- A checkerboard pattern where neighbors have opposing opinions: low clustering (~0.1).
-
-Relevance:
-
-- Clustering tends to increase, since influence is local.
-- But if you add random long-range ties, clusters may compete instead of stabilizing.
