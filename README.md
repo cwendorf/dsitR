@@ -35,7 +35,7 @@ This package contains a set of materials to demonstrate its use:
 - [Metrics](./docs/Metrics.md): The metrics used to measure changes in influence networks
 - [Sample](./docs/Sample.md): The basic code to analyze a simple influence network
 
-### Contact Me
+### Contact
 
 - GitHub Issues: [https://github.com/cwendorf/dsitR/issues](https://github.com/cwendorf/dsitR/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
