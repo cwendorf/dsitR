@@ -3,12 +3,30 @@ title: "Simple Example"
 output:
   github_document:
     preserve_yaml: FALSE
+vignette: >
+  %\VignetteIndexEntry{Simple Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=TRUE}
-# Load necessary functions from external file
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE, comment = NA)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
+```
+
+```{r setup, include=FALSE}
 source("http://raw.githubusercontent.com/cwendorf/dsitR/main/source-dsitR.R")
 ```
+
+## Simple Example
+
+This vignette provides a simple example of how to use the `dsitR` package to conduct a simulation, visualize the results, and assess the outcomes. The example is designed to be straightforward and easy to follow, making it suitable for those new to the package or to agent-based modeling in general. It uses grid plots to visualize the simulation, making it easy to see the changes in opinions over time.
+
+```{r toc, echo=FALSE}
+knitr::current_input() |> revised_toc(base_level = 3, toc_depth = 1)
+```
+
+---
 
 ### Conduct the Simulation
 
@@ -46,7 +64,7 @@ head(result)
 
 Plot the neighborhood at specific steps (either with or without the connections among agents).
 
-```{r}
+```{r, simple-network}
 # Plot Opinion 1 at the first step with edges
 plot_step(
   subset(result, time == 1),
@@ -66,7 +84,7 @@ plot_step(
 
 Plot individuals at specific steps to highlight who they are influencing (and are influenced by).
 
-```{r}
+```{r, simple-individual}
 # Look at agent 42’s neighborhood at first step
 frame <- subset(result, time == 1)
 plot_individual(frame, neighborhood, id=42, opinion="opinion1")
@@ -78,7 +96,7 @@ plot_individual(frame, neighborhood, coords=c(2,6), opinion="opinion1")
 
 Visualize the entire Simulation to unveil changes and patterns (with or without connections).
 
-```{r}
+```{r, simple-animated, eval=FALSE}
 # Animate all steps (with edges) for Opinion 1
 animate_simulation(
   result,
@@ -112,7 +130,7 @@ compute_metrics(frame)
 
 Calculate and plot trends in the metrics.
 
-```{r}
+```{r simple-metrics}
 # Calculate the trends in the metrics
 trends <- compute_trends(result)
 names(trends)

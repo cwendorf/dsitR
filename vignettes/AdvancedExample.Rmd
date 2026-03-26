@@ -3,11 +3,27 @@ title: "Advanced Example"
 output:
   github_document:
     preserve_yaml: FALSE
+vignette: >
+  %\VignetteIndexEntry{Advanced Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=TRUE}
-# Load necessary functions from external file
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE, comment = NA)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
+```
+
+```{r setup, include=FALSE}
 source("http://raw.githubusercontent.com/cwendorf/dsitR/main/source-dsitR.R")
+```
+
+## Advanced Example
+
+This vignette provides a more advanced example of how to use the `dsitR` package to conduct a simulation, visualize the results, and assess the outcomes. The example is designed to be more complex and detailed, making it suitable for those who have some experience with the package or with agent-based modeling in general. It uses force-directed graphs to visualize the simulation, which can reveal more complex patterns and interactions among agents. The assessment section includes a Principal Components Analysis (PCA) to identify underlying dimensions of opinion change and clustering to identify groups of agents with similar opinion trajectories.
+
+```{r toc, echo=FALSE}
+knitr::current_input() |> revised_toc(base_level = 3, toc_depth = 1)
 ```
 
 ### Conduct the Simulation
@@ -36,7 +52,7 @@ head(result)
 
 Visualize the a step using a force-directed graph.
 
-```{r}
+```{r, advanced-network}
 # Visualize just the initial step
 frame1 <- subset(result, time==1)
 plot_network(frame1,
@@ -48,7 +64,7 @@ plot_network(frame1,
 
 Visualize the entire simulation to unveil changes and patterns.
 
-```{r}
+```{r, advanced-animated, eval=FALSE}
 # Animate the changes in the force-directed graph
 animate_network(result,
   neighborhood=neighborhood,
@@ -62,7 +78,7 @@ Prepare for and conduct the Principal Components extraction.
 
 ```{r}
 # Extract opinions from the final frame
-frame <- subset(result1, time == 100)
+frame <- subset(result, time == 100)
 frame <- frame[, c("opinion1", "opinion2", "opinion3", "opinion4")]
 head(frame)
 
@@ -74,7 +90,7 @@ scores <- pca$x
 
 Determine the number of likely clusters in the data.
 
-```{r}
+```{r, advanced-pca}
 # k-means clustering in component space
 summary(pca)
 pca$rotation
@@ -91,7 +107,7 @@ clusters <- kmeans(scores[,1:2], centers = k)$cluster
 
 Assess the difference in component scores by cluster.
 
-```{r}
+```{r, advanced-clusters}
 # Boxplots of components per cluster
 boxplot(scores[,1] ~ clusters,
         xlab = "Cluster", ylab = "PC1",
