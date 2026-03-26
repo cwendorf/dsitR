@@ -4,6 +4,13 @@
 
 Interpreting DSIT metrics properly is crucial, because each one is trying to capture a different aspect of how opinions evolve in simulations.
 
+- [Clustering](#clustering)
+- [Correlation](#correlation)
+- [Consolidation](#consolidation)
+- [Diversity](#diversity)
+
+---
+
 ### Clustering
 
 Definition: 

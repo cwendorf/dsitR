@@ -4,6 +4,11 @@
 
 Applying Principal Components Analysis to Dynamic Social Impact Theory simulations helps uncover the key patterns and group structures hidden within complex, high-dimensional data.
 
+- [Overview](#overview)
+- [Steps](#steps)
+
+---
+
 ### Overview
 
 PCA can be conducted to reduce the complexity of multiple, likely correlated opinion variables (espeically at the end of the simulation) into a smaller set of uncorrelated components that capture the main patterns of variation.

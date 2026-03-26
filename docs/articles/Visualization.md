@@ -4,6 +4,11 @@
 
 Visualization helps turn complex simulation results into clear, interpretable images and animations, making it easier to see how opinions spread, clusters form, and diversity or consensus emerges over time.
 
+- [Grid (Lattice) Plots](#grid-lattice-plots)
+- [Force-Directed Graphs](#force-directed-graphs)
+
+---
+
 ### Grid (Lattice) Plots
 
 In grid plots, agents are placed on a fixed 2D grid (x,y coordinates), where distance in the plot corresponds to physical/social immediacy. These have a number of uses, depending on what the researcher wishes to highlight.

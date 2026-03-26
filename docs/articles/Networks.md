@@ -4,6 +4,11 @@
 
 Agents and neighborhoods together define the social network in DSIT simulations: agents are the nodes, each with opinions and influence strength, and neighborhoods determine the edges, specifying who interacts with whom.
 
+- [Agents](#agents)
+- [Neighborhoods](#neighborhoods)
+
+---
+
 ### Agents
 
 Agents serve as individual entities that each hold one or more opinions with varying degrees of strength. In simulations, the distinction between opinion and strength is subtle but very important for modeling social dynamics:
