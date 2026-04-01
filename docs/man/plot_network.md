@@ -1,4 +1,4 @@
-# [`DEVISE`](https://github.com/cwendorf/DEVISE/)
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
 
 ## Plot force-directed network of agents
 

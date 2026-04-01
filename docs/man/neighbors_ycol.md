@@ -1,4 +1,4 @@
-# [`DEVISE`](https://github.com/cwendorf/DEVISE/)
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
 
 ## Y-column neighbors (closest in y)
 

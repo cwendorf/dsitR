@@ -1,4 +1,4 @@
-# [`DEVISE`](https://github.com/cwendorf/DEVISE/)
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
 
 ## Compute opinion metrics over all simulation steps
 

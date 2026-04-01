@@ -1,4 +1,4 @@
-# [`DEVISE`](https://github.com/cwendorf/DEVISE/)
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
 
 ## Animate force-directed network over time
 
