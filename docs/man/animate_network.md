@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Animate force-directed network over time
+## Animate Network
 
 ### Description
 

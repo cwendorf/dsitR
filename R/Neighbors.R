@@ -1,7 +1,7 @@
 # dsitR
 ## Neighbors
 
-#' Create agents in a grid
+#' Create Agents
 #'
 #' Generates a data frame representing agents positioned on a grid, 
 #' each with one or more opinions and corresponding strengths.
@@ -33,7 +33,7 @@ create_agents <- function(rows, cols, opinions = 1,
   agents
 }
 
-#' Create a neighborhood based on influence patterns
+#' Create Neighborhood
 #'
 #' Generates a list of neighbors for each agent according to a specified neighbor function.
 #'
@@ -62,7 +62,7 @@ create_neighborhood <- function(agents, neighbors, params=list()) {
   return(pos)
 }
 
-#' Moore neighbors (8 neighbors)
+#' Moore Neighbors
 #'
 #' Returns the indices of the 8 surrounding neighbors of an agent in a grid,
 #' wrapping around the edges if necessary.
@@ -90,7 +90,7 @@ neighbors_moore <- function(id, agents, params=list()){
   neighbors
 }
 
-#' Von Neumann neighbors (4 neighbors)
+#' Von Neumann Neighbors
 #'
 #' Returns the indices of the 4 adjacent neighbors (up, down, left, right) 
 #' of an agent in a grid, wrapping around the edges if necessary.
@@ -115,7 +115,7 @@ neighbors_vonneumann <- function(id, agents, params=list()){
   neighbors
 }
 
-#' Moore neighbors plus one outside neighbor
+#' Moore Neighbors Plus One
 #'
 #' Returns the indices of the 8 Moore neighbors of an agent in a grid, 
 #' plus one additional random agent outside this neighborhood.
@@ -132,7 +132,7 @@ neighbors_moore_outside <- function(id, agents, params=list()){
   c(neighbors, outside)
 }
 
-#' Von Neumann neighbors plus one outside neighbor
+#' Von Neumann Neighbors Plus One
 #'
 #' Returns the indices of the 4 Von Neumann neighbors of an agent in a grid,
 #' plus one additional random agent outside this neighborhood.
@@ -149,7 +149,7 @@ neighbors_vn_outside <- function(id, agents, params=list()){
   c(neighbors, outside)
 }
 
-#' Random k neighbors
+#' Random k Neighbors
 #'
 #' Returns the indices of k randomly selected neighbors for an agent,
 #' excluding the agent itself.
@@ -165,7 +165,7 @@ neighbors_random_k <- function(id, agents, params=list()){
   sample(setdiff(1:nrow(agents), id), min(k, nrow(agents)-1))
 }
 
-#' Cluster neighbors (same row)
+#' Cluster Neighbors
 #'
 #' Returns the indices of neighbors in the same row (cluster) as the agent.
 #'
@@ -181,7 +181,7 @@ neighbors_cluster <- function(id, agents, params=list()){
   sample(setdiff(cluster, id), min(cluster_size, length(cluster)-1))
 }
 
-#' X-row neighbors (closest in x)
+#' X-Row Neighbors
 #'
 #' Returns the indices of the k closest neighbors in the same row based on x-coordinate distance.
 #'
@@ -199,7 +199,7 @@ neighbors_xrow <- function(id, agents, params=list()){
   row_neighbors[order(dx[row_neighbors])[1:min(k,length(row_neighbors))]]
 }
 
-#' Y-column neighbors (closest in y)
+#' Y-Column Neighbors
 #'
 #' Returns the indices of the k closest neighbors in the same column based on y-coordinate distance.
 #'
@@ -217,7 +217,7 @@ neighbors_ycol <- function(id, agents, params=list()){
   col_neighbors[order(dy[col_neighbors])[1:min(k,length(col_neighbors))]]
 }
 
-#' Long-range neighbor (farthest single neighbor)
+#' Long-Range Neighbor
 #'
 #' Returns the index of the single agent that is farthest away from the given agent.
 #'
@@ -233,9 +233,9 @@ neighbors_longrange <- function(id, agents, params=list()){
   others[which.max(dists)]
 }
 
-#' Weighted distance neighbors (nearest 4 + farthest)
-#'
-#' Returns the indices of the 4 nearest neighbors plus the single farthest neighbor
+#' Weighted Distance Neighbors
+#' 
+#'#' Returns the indices of the 4 nearest neighbors plus the single farthest neighbor
 #' for a given agent based on Euclidean distance.
 #'
 #' @param id Integer ID of the agent.

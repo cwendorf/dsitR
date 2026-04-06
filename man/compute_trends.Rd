@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{compute_trends}
 \alias{compute_trends}
-\title{Compute opinion metrics over all simulation steps}
+\title{Compute Trends}
 \usage{
 compute_trends(simulation)
 }

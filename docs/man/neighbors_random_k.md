@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Random k neighbors
+## Random k Neighbors
 
 ### Description
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Simulator.R
 \name{run_simulation}
 \alias{run_simulation}
-\title{Run agent-based simulation}
+\title{Run Simulation}
 \usage{
 run_simulation(agents, neighborhood, steps = 30, rate = 0.4)
 }

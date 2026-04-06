@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_cluster}
 \alias{neighbors_cluster}
-\title{Cluster neighbors (same row)}
+\title{Cluster Neighbors}
 \usage{
 neighbors_cluster(id, agents, params = list())
 }

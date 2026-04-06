@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Run agent-based simulation
+## Run Simulation
 
 ### Description
 

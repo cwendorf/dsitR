@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Compute opinion diversity
+## Compute Diversity
 
 ### Description
 

@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Plot all agents at a single step
+## Plot Step
 
 ### Description
 

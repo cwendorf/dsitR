@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{plot_trend}
 \alias{plot_trend}
-\title{Plot the trend of a specific metric over time}
+\title{Plot Trend}
 \usage{
 plot_trend(trends, metric, opinion = "average", col = "blue", lwd = 2)
 }

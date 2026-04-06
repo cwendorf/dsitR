@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{compute_consolidation}
 \alias{compute_consolidation}
-\title{Compute local opinion consolidation}
+\title{Compute Consolidation}
 \usage{
 compute_consolidation(frame)
 }

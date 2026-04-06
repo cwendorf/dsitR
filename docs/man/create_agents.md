@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Create agents in a grid
+## Create Agents
 
 ### Description
 

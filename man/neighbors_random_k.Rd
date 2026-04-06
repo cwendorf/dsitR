@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_random_k}
 \alias{neighbors_random_k}
-\title{Random k neighbors}
+\title{Random k Neighbors}
 \usage{
 neighbors_random_k(id, agents, params = list())
 }

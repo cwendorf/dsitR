@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## X-row neighbors (closest in x)
+## X-Row Neighbors
 
 ### Description
 

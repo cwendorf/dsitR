@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{compute_clustering}
 \alias{compute_clustering}
-\title{Compute spatial clustering of opinions}
+\title{Compute Clustering}
 \usage{
 compute_clustering(frame)
 }

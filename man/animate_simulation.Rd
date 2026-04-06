@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plotter.R
 \name{animate_simulation}
 \alias{animate_simulation}
-\title{Animate simulation of agents over time}
+\title{Animate Simulation}
 \usage{
 animate_simulation(
   sim_result,

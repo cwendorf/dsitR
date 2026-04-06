@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Compute all opinion metrics for a step
+## Compute Metrics
 
 ### Description
 

@@ -1,7 +1,7 @@
 # dsitR
 ## Statistics
 
-#' Identify local neighbors on a grid
+#' Identify Local Neighbors
 #'
 #' Finds neighboring agents within a specified Manhattan radius around a focal agent.
 #'
@@ -18,7 +18,7 @@
   neighbors
 }
 
-#' Compute correlations across opinions
+#' Compute Correlation
 #'
 #' Calculates Spearman correlations between all pairs of opinion columns in a data frame.
 #'
@@ -37,7 +37,7 @@ compute_correlation <- function(frame) {
   c(cor_vector, average = mean(cor_vector, na.rm = TRUE))
 }
 
-#' Compute local opinion consolidation
+#' Compute Consolidation
 #'
 #' Measures how similar each agent's opinions are to its local neighbors, 
 #' using a radius-1 neighborhood on the grid. Returns per-opinion and average consolidation.
@@ -64,7 +64,7 @@ compute_consolidation <- function(frame) {
   setNames(c(vals, mean(vals)), c(opinion_cols, "average"))
 }
 
-#' Compute opinion diversity
+#' Compute Diversity
 #'
 #' Calculates the variance of each opinion across all agents, with an additional average variance.
 #'
@@ -78,7 +78,7 @@ compute_diversity <- function(frame) {
   setNames(c(vals, mean(vals)), c(opinion_cols, "average"))
 }
 
-#' Compute spatial clustering of opinions
+#' Compute Clustering
 #'
 #' Measures local similarity of agent opinions with their immediate neighbors on the grid
 #' (radius = 1), returning per-opinion clustering values and an overall average.
@@ -105,7 +105,7 @@ compute_clustering <- function(frame) {
   setNames(c(vals, mean(vals)), c(opinion_cols, "average"))
 }
 
-#' Compute all opinion metrics for a step
+#' Compute Metrics
 #'
 #' Calculates multiple opinion metrics for a single time step, including 
 #' global correlations, local consolidation, global diversity, and spatial clustering.
@@ -129,7 +129,7 @@ compute_metrics <- function(frame) {
   )
 }
 
-#' Compute opinion metrics over all simulation steps
+#' Compute Trends
 #'
 #' Calculates multiple opinion metrics—correlation, consolidation, diversity, and clustering—
 #' for each time step in a simulation.
@@ -152,7 +152,7 @@ compute_trends <- function(simulation) {
   as.data.frame(trends)
 }
 
-#' Plot the trend of a specific metric over time
+#' Plot Trend
 #'
 #' Visualizes the temporal evolution of a chosen opinion metric from the simulation trends.
 #'

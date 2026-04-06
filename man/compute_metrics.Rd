@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{compute_metrics}
 \alias{compute_metrics}
-\title{Compute all opinion metrics for a step}
+\title{Compute Metrics}
 \usage{
 compute_metrics(frame)
 }

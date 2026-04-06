@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Compute local opinion consolidation
+## Compute Consolidation
 
 ### Description
 

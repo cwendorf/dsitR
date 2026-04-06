@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{compute_correlation}
 \alias{compute_correlation}
-\title{Compute correlations across opinions}
+\title{Compute Correlation}
 \usage{
 compute_correlation(frame)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plotter.R
 \name{color_agents}
 \alias{color_agents}
-\title{Color agents based on values}
+\title{Color Agents}
 \usage{
 color_agents(values, col_palette = NULL)
 }

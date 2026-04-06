@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_xrow}
 \alias{neighbors_xrow}
-\title{X-row neighbors (closest in x)}
+\title{X-Row Neighbors}
 \usage{
 neighbors_xrow(id, agents, params = list())
 }

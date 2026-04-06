@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Compute spatial clustering of opinions
+## Compute Clustering
 
 ### Description
 

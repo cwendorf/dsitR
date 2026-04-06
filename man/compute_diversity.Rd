@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{compute_diversity}
 \alias{compute_diversity}
-\title{Compute opinion diversity}
+\title{Compute Diversity}
 \usage{
 compute_diversity(frame)
 }

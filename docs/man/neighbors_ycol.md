@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Y-column neighbors (closest in y)
+## Y-Column Neighbors
 
 ### Description
 

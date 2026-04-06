@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Von Neumann neighbors (4 neighbors)
+## Von Neumann Neighbors
 
 ### Description
 

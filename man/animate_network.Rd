@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plotter.R
 \name{animate_network}
 \alias{animate_network}
-\title{Animate force-directed network over time}
+\title{Animate Network}
 \usage{
 animate_network(
   history,

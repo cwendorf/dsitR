@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Color agents based on values
+## Color Agents
 
 ### Description
 

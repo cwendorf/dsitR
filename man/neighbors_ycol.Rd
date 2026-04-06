@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_ycol}
 \alias{neighbors_ycol}
-\title{Y-column neighbors (closest in y)}
+\title{Y-Column Neighbors}
 \usage{
 neighbors_ycol(id, agents, params = list())
 }

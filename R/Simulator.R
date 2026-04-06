@@ -1,7 +1,7 @@
 # dsitR
 ## Simulator
 
-#' Calculate influence on an agent from its neighbors
+#' Calculate Influence
 #'
 #' Computes the weighted average of neighbors' opinions for a given agent, 
 #' weighted by their opinion strengths.
@@ -23,7 +23,7 @@ calculate_influence <- function(id, neighbors, agents, opinions){
   infl
 }
 
-#' Update an agent's opinions based on influence
+#' Update Opinions
 #'
 #' Adjusts an agent's opinions toward the weighted influence of its neighbors at a given rate,
 #' keeping each opinion value within [-1, 1].
@@ -45,7 +45,7 @@ update_opinions <- function(agent_row, influence, rate=0.2, opinions){
   agent_row
 }
 
-#' Run agent-based simulation
+#' Run Simulation
 #'
 #' Simulates the evolution of agent opinions over multiple time steps, 
 #' updating each agent's opinions based on the influence of its neighbors.

@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Moore neighbors plus one outside neighbor
+## Moore Neighbors Plus One
 
 ### Description
 

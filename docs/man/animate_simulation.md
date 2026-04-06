@@ -1,10 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Animate simulation of agents over time
-
-**Aliases:**
-
-- `animate_simulation`
+## Animate Simulation
 
 ### Description
 

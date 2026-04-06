@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Create a neighborhood based on influence patterns
+## Create Neighborhood
 
 ### Description
 

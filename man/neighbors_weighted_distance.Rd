@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_weighted_distance}
 \alias{neighbors_weighted_distance}
-\title{Weighted distance neighbors (nearest 4 + farthest)}
+\title{Weighted Distance Neighbors}
 \usage{
 neighbors_weighted_distance(id, agents, params = list())
 }

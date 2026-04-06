@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Moore neighbors (8 neighbors)
+## Moore Neighbors
 
 ### Description
 

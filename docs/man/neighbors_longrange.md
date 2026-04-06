@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Long-range neighbor (farthest single neighbor)
+## Long-Range Neighbor
 
 ### Description
 

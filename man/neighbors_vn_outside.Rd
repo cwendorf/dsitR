@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_vn_outside}
 \alias{neighbors_vn_outside}
-\title{Von Neumann neighbors plus one outside neighbor}
+\title{Von Neumann Neighbors Plus One}
 \usage{
 neighbors_vn_outside(id, agents, params = list())
 }

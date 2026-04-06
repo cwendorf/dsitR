@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Weighted distance neighbors (nearest 4 + farthest)
+## Weighted Distance Neighbors
 
 ### Description
 

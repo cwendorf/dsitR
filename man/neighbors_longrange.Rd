@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_longrange}
 \alias{neighbors_longrange}
-\title{Long-range neighbor (farthest single neighbor)}
+\title{Long-Range Neighbor}
 \usage{
 neighbors_longrange(id, agents, params = list())
 }

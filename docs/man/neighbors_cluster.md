@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Cluster neighbors (same row)
+## Cluster Neighbors
 
 ### Description
 

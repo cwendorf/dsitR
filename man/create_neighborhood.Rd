@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{create_neighborhood}
 \alias{create_neighborhood}
-\title{Create a neighborhood based on influence patterns}
+\title{Create Neighborhood}
 \usage{
 create_neighborhood(agents, neighbors, params = list())
 }

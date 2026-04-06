@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{neighbors_moore}
 \alias{neighbors_moore}
-\title{Moore neighbors (8 neighbors)}
+\title{Moore Neighbors}
 \usage{
 neighbors_moore(id, agents, params = list())
 }

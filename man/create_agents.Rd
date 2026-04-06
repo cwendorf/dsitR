@@ -2,7 +2,7 @@
 % Please edit documentation in R/Neighbors.R
 \name{create_agents}
 \alias{create_agents}
-\title{Create agents in a grid}
+\title{Create Agents}
 \usage{
 create_agents(
   rows,

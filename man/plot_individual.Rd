@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plotter.R
 \name{plot_individual}
 \alias{plot_individual}
-\title{Plot a single agent and its neighbors}
+\title{Plot Individal}
 \usage{
 plot_individual(
   frame,

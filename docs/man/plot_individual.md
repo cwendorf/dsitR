@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Plot a single agent and its neighbors
+## Plot Individual
 
 ### Description
 

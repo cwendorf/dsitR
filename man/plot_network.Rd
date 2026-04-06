@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plotter.R
 \name{plot_network}
 \alias{plot_network}
-\title{Plot force-directed network of agents}
+\title{Plot Network}
 \usage{
 plot_network(
   frame,

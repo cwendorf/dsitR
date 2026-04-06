@@ -1,6 +1,6 @@
 # [`dsitR`](https://github.com/cwendorf/dsitR/)
 
-## Compute correlations across opinions
+## Compute Correlation
 
 ### Description
 

@@ -1,7 +1,7 @@
 # dsitR
 ## Plotter
 
-#' Color agents based on values
+#' Color Agents
 #'
 #' Maps numeric values to colors using a color palette.
 #'
@@ -17,7 +17,7 @@ color_agents <- function(values, col_palette=NULL) {
   col_palette[as.numeric(cut(values, breaks=100))]
 }
 
-#' Plot all agents at a single step
+#' Plot Step
 #'
 #' Visualizes agents on a grid for a single time step, optionally showing their neighborhood connections
 #' and coloring agents according to an opinion value.
@@ -57,7 +57,7 @@ plot_step <- function(frame, neighborhood=NULL, opinion="opinion1",
   points(frame$x, frame$y, col=frame$col, pch=19, cex=2)
 }
 
-#' Plot a single agent and its neighbors
+#' Plot Individual
 #'
 #' Visualizes a single focal agent on a grid along with its neighbors,
 #' coloring agents according to an opinion value.
@@ -106,7 +106,7 @@ plot_individual <- function(frame, neighborhood, id=NULL, coords=NULL,
   points(frame$x[focal], frame$y[focal], col=frame$col[focal], pch=19, cex=focal_cex)
 }
 
-#' Animate simulation of agents over time
+#' Animate Simulation
 #'
 #' Creates an animation of agents moving over time steps, optionally showing neighborhood connections 
 #' and coloring agents according to an opinion value.
@@ -168,7 +168,7 @@ animate_simulation <- function(sim_result, neighborhood=NULL, opinion="opinion1"
   }
 }
 
-#' Plot force-directed network of agents
+#' Plot Network
 #'
 #' Visualizes agents as nodes in a force-directed network, showing edges based on a neighborhood structure.
 #' Node colors represent an opinion value.
@@ -246,7 +246,7 @@ plot_network <- function(frame, neighborhood,
   points(pos[,1], pos[,2], col=frame$col, pch=19, cex=node_size)
 }
 
-#' Animate force-directed network over time
+#' Animate Network
 #'
 #' Creates an animation of a force-directed network of agents over multiple time steps,
 #' showing node colors based on an opinion value and edges based on a neighborhood structure.

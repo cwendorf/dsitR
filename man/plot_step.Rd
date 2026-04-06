@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plotter.R
 \name{plot_step}
 \alias{plot_step}
-\title{Plot all agents at a single step}
+\title{Plot Step}
 \usage{
 plot_step(
   frame,
