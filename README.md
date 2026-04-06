@@ -1,4 +1,4 @@
-# `dsitR`
+# [`dsitR`](https://github.com/cwendorf/dsitR/)
 
 ## Dynamic Social Impact Simulator
 
