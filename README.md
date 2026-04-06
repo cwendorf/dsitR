@@ -31,8 +31,8 @@ This package contains a set of materials to demonstrate its use:
 
 - [Introduction](./docs/README.md): An introduction to the basic principles of DSIT.
 - [Background](./docs/background/README.md): The theoretical background for simulating influence networks.
-- [Articles](./docs/vignettes/README.md): Simple and advanced examples of the use of `dsitR`.
 - [Reference](./docs/man/README.md): Documentation for all exported functions, including usauge, arguments, and return values.
+- [Articles](./docs/vignettes/README.md): Simple and advanced examples of the use of `dsitR`.
 
 ### Contact
 

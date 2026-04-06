@@ -34,5 +34,5 @@ Imagine a university dorm at the start of the school year. At first, students co
 ### Resources
 
 - [Background](./background/README.md): How simulations are used to study Dynamic Social Impact.
-- [Articles](./vignettes/README.md): Step-by-step walkthough examples used to demonstrate `dsitR`.
 - [Reference](./man/README.md): Documentation for all exported functions, including usage, arguments, and return values.
+- [Articles](./vignettes/README.md): Step-by-step walkthough examples used to demonstrate `dsitR`.
