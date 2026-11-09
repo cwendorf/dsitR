@@ -34,12 +34,6 @@ This package contains a set of materials to demonstrate its use:
 - [Reference](./docs/man/README.md): Documentation for all exported functions, including usauge, arguments, and return values.
 - [Articles](./docs/vignettes/README.md): Simple and advanced examples of the use of `dsitR`.
 
-### Contact
-
-- GitHub Issues: [https://github.com/cwendorf/dsitR/issues](https://github.com/cwendorf/dsitR/issues) 
-- Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://github.com/cwendorf](https://github.com/cwendorf)
-
 ### Citation
 
 Wendorf, C. A. (2025). *dsitR: Dynamic social impact simulator* [R Package]. [https://github.com/cwendorf/dsitR](https://github.com/cwendorf/dsitR)

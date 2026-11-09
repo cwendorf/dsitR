@@ -1,6 +1,6 @@
 # dsitR
 
-## dsitR 0.1.251015
+## dsitR 0.251015
 
 - Initial release
 - Basic examples included
