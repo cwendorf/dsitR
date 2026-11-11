@@ -5,10 +5,5 @@ authors:
   - family-names: "Wendorf"
     given-names: "Craig A."
     email: "cwendorf@uwsp.edu"
-version: "0.251015"
-license: "MIT"
-repository-code: "https://github.com/cwendorf/dsitR"
+date-released: "2025-10-15"
 url: "https://github.com/cwendorf/dsitR"
-abstract: >-
-  This package is for simulating, visualizing, and assessing Dynamic Social
-  Impact Theory (DSIT).
