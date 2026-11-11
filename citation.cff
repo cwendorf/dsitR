@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "dsitR: Dynamic Social Impact Simulator"
+authors:
+  - family-names: "Wendorf"
+    given-names: "Craig A."
+    email: "cwendorf@uwsp.edu"
+version: "0.251015"
+license: "MIT"
+repository-code: "https://github.com/cwendorf/dsitR"
+url: "https://github.com/cwendorf/dsitR"
+abstract: >-
+  This package is for simulating, visualizing, and assessing Dynamic Social
+  Impact Theory (DSIT).
