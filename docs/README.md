@@ -2,7 +2,7 @@
 
 ## Introduction
 
-`dsitR` is an R package for simulating Dynamic Social Impact Theory (DSIT). It models agents with multi-dimensional opinions who influence each other through customizable neighborhoods, and provides tools for simulation, visualization, and analysis of cultural dynamics over time.
+Dynamic Social Impact Theory (DSIT) describes how people influence and are influenced by their social surroundings over time. `dsitR` simulates this process with agents holding multidimensional opinions and interacting through customizable neighborhoods.
 
 - [Overview](#overview)
 - [Illustration](#illustration)
@@ -12,7 +12,7 @@
 
 ### Overview
 
-Unlike the original Social Impact Theory (which focused on one-way influence), DSIT emphasizes that influence is two-way -- people both affect and are affected by others around them. When people interact repeatedly, four main patterns tend to emerge:
+Unlike the original Social Impact Theory, which focused on one-way influence, DSIT emphasizes that influence is reciprocal: people both affect and are affected by those around them. Repeated interactions can produce four main patterns:
 
 - Consolidation: Opinions or behaviors become stronger and more uniform within a group.
 - Clustering: People with similar views or behaviors group together.

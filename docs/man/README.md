@@ -2,7 +2,7 @@
 
 ## Reference
 
-This directory contains the complete function reference for `dsitR`, converted from the package's Rd documentation. Functions are organized below by category.
+This directory contains the complete function reference for `dsitR`, converted from the package's Rd documentation. Each page documents one exported function, including usage, arguments, return values, and examples.
 
 - [Core Simulation](#core-simulation)
 - [Neighbor Structures](#neighbor-structures)

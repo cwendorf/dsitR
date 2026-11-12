@@ -2,7 +2,7 @@
 
 ## Articles
 
-This section contains vignettes for `dsitR`. Each page demonstrates a workflow to create a simulation, visualize the simulation, and analyze the metrics of the simulation.
+This section contains articles for `dsitR`. They walk through creating and running agent-based simulations, visualizing networks, and analyzing simulation metrics.
 
 - [Full Simulations](#full-simulations)
 
